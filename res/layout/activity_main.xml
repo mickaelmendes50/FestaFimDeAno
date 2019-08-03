@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@+id/text_today"
-        android:background="@color/colorAccent" />
+        android:background="@color/colorPrimary" />
 
     <TextView
         android:id="@+id/text_label_days_left"
