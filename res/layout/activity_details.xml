@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:padding="8pt"
-    tools:context=".DetailsActivity">
+    tools:context=".view.DetailsActivity">
 
     <TextView
         android:id="@+id/text_label_will_you_join"
@@ -24,6 +24,7 @@
         android:background="@color/colorPrimary" />
 
     <CheckBox
+        android:id="@+id/check_participate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
