@@ -37,7 +37,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mViewHolder.textToday.setText(SIMPLE_DATE_FORMAT.format(Calendar.getInstance().getTime()));
         String daysLeft = String.format("%s %s", String.valueOf(this.getDaysLeft()), getString(R.string.dias));
         this.mViewHolder.textDaysLeft.setText(daysLeft);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         this.verifyPreference();
     }
 
