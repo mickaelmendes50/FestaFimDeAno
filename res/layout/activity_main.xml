@@ -12,11 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="01/01/2019" />
+        android:text="01/01/2019"
+        android:textSize="26sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginTop="8dp"
         android:layout_below="@+id/text_today"
         android:background="@color/colorPrimary" />
 
@@ -25,8 +27,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
-        android:text="@string/dias_restantes_para_o_fim_do_ano" />
+        android:layout_marginTop="260dp"
+        android:text="@string/dias_restantes_para_o_fim_do_ano"
+        android:textSize="26sp" />
 
     <TextView
         android:id="@+id/text_days_left"
@@ -34,13 +37,20 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/text_label_days_left"
         android:layout_centerHorizontal="true"
-        android:text="365 dias" />
+        android:layout_centerInParent="true"
+        android:text="365 dias"
+        android:textColor="@color/colorPrimary"
+        android:textSize="40sp" />
 
     <Button
         android:id="@+id/button_confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="SIM/NÃO/ Não Confirmado" />
+        android:background="@drawable/button_background"
+        android:padding="24dp"
+        android:text="SIM/NÃO/ Não Confirmado"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="18sp" />
 
 </RelativeLayout>

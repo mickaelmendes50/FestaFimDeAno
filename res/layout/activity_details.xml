@@ -14,13 +14,13 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/voc_vai_participar"
-        android:textSize="30sp" />
+        android:textSize="26sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@+id/text_label_will_you_join"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="8dp"
         android:background="@color/colorPrimary" />
 
     <CheckBox
@@ -30,6 +30,6 @@
         android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
         android:text="@string/voc_vai_participar"
-        android:textSize="30sp" />
+        android:textSize="26sp" />
 
 </RelativeLayout>
