@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.mesquita.festafimdeano.R;
+import com.mesquita.festafimdeano.constants.FimDeAnoConstants;
+import com.mesquita.festafimdeano.data.SecurityPreferences;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -15,12 +17,15 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ViewHolder mViewHolder = new ViewHolder();
+    private SecurityPreferences mSecurityPreferences;
     private static SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        this.mSecurityPreferences = new SecurityPreferences(this);
 
         this.mViewHolder.textToday = findViewById(R.id.text_today);
         this.mViewHolder.textDaysLeft = findViewById(R.id.text_days_left);
@@ -32,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mViewHolder.textToday.setText(SIMPLE_DATE_FORMAT.format(Calendar.getInstance().getTime()));
         String daysLeft = String.format("%s %s", String.valueOf(this.getDaysLeft()), getString(R.string.dias));
         this.mViewHolder.textDaysLeft.setText(daysLeft);
+
+        this.verifyPreference();
     }
 
     @Override
@@ -39,6 +46,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v.getId() == R.id.button_confirm) {
             Intent intent = new Intent(this, DetailsActivity.class);
             startActivity(intent);
+        }
+    }
+
+    private void verifyPreference() {
+        // Não confirmado, Sim, Não
+        String presence = this.mSecurityPreferences.getStoredString(FimDeAnoConstants.PRESENCE_KEY);
+        if (presence.equals("")) {
+            this.mViewHolder.buttonConfirm.setText(R.string.nao_confirmado);
+        } else if (presence.equals(FimDeAnoConstants.CONFIRMATION_YES)) {
+            this.mViewHolder.buttonConfirm.setText(R.string.sim);
+        } else {
+            this.mViewHolder.buttonConfirm.setText(R.string.nao);
         }
     }
 
